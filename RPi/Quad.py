@@ -19,6 +19,24 @@ def motor(num,motor): #set the thrust of individual motor
 def lift(num): # set the thrust of all of the motors
 	for i in motors:
 		i.changeDutyCycle(num)
+def steady():
+	#where x and y are readings from the acceleromiter / gyro between -10 and 10
+	if y > 0 and x < 0:
+		gy =  ((x * -1) + y) / 2
+		motor(gy*10,NE)
+
+        if y > 0 and x > 0:
+                gy =  (y + x) / 2
+                motor(gy*10,NW)
+
+	if y < 0 and x > 0:
+                gy =  ((y * -1) + x) / 2
+                motor(gy*10,SW)
+
+        if y < 0 and x < 0:
+                gy =  ((x * -1) + (y * -1)) / 2
+                motor(gy*10,SE)
+
 
 while l :
 	command = str(raw_input("TaiiwoCopter_v1.0 $")
