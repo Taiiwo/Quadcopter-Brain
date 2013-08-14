@@ -1,0 +1,22 @@
+#:kivy 1.0
+
+<main>:
+	orientation: 'vertical'
+	url: text1
+	article: textbox
+	RstDocument:
+		id: textbox
+	BoxLayout:
+		orientaion: 'horizontal'
+		size_hint: 1, .1
+		TextInput:
+			font_size: self.height * .7
+			size_hint: .8, 1
+			id: text1
+			text: 'Enter Article URL'
+			multiline: False
+		Button:
+			text: 'Go!'
+			size_hint: .2, 1
+			font_size: self.height * .7
+			on_release: root.dostuff()
